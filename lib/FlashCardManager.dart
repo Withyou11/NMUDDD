@@ -249,12 +249,12 @@ class _FlashCardPageAdminState extends State<FlashCardPageAdmin> {
     );
   }
 
-  Widget ListflashCardEmpty() => Text('data');
+  Widget ListflashCardEmpty() => Text('List is empty');
   Widget ListflashCard() => ListView.builder(
         scrollDirection: Axis.vertical,
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
-        itemCount: newList.length,
+        itemCount:newList.length,
         itemBuilder: (context, index) {
           final item = newList[index];
           return Container(
@@ -318,9 +318,7 @@ class _FlashCardPageAdminState extends State<FlashCardPageAdmin> {
                           GestureDetector(
                             onTap: () {
                               showWarningNotifi(context, item);
-                              setState(() {
-                                LoadFlashCard();
-                              });
+                             
                             },
                             child: Container(
                                 width: 40,
@@ -421,10 +419,13 @@ class _FlashCardPageAdminState extends State<FlashCardPageAdmin> {
     );
 
     Widget yesButton = TextButton(
-      onPressed: () {
+      onPressed: () async {
         DeleteWord(item);
         setState(() {
+          print('11111111111');
           LoadFlashCard();
+          Search('');
+          _findController.text='';
         });
         Navigator.of(context).pop();
       },

@@ -162,13 +162,15 @@ class _VocabularyManagerState extends State<VocabularyManager> {
                         Container(
                           width: double.infinity,
                           height: 300,
-                          child: listVoca.isEmpty
-                              ? const Center(
-                                  child: Text('List vocabulary is Empty',
-                                      style: TextStyle(
-                                          color: Color.fromRGBO(13, 209, 33, 1),
-                                          fontSize: 18)))
-                              : Listvoca(),
+                          child: 
+                          // listVoca.isEmpty
+                          //     ? const Center(
+                          //         child: Text('List vocabulary is Empty',
+                          //             style: TextStyle(
+                          //                 color: Color.fromRGBO(13, 209, 33, 1),
+                          //                 fontSize: 18)))
+                          //     : 
+                              Listvoca(),
                           // child: ,
                         ),
                         const Text('Form:',
@@ -417,9 +419,9 @@ class _VocabularyManagerState extends State<VocabularyManager> {
                       GestureDetector(
                           onTap: () {
                             showWarningNotifi(context, voca);
-                            setState(() {
-                              reLoadVoca();
-                            });
+                            // setState(() {
+                            //   reLoadVoca();
+                            // });
                           },
                           child: Container(
                               width: 50,
@@ -443,10 +445,9 @@ class _VocabularyManagerState extends State<VocabularyManager> {
                         child: GestureDetector(
                             onTap: () {
                               vocaID = voca.id.toString();
-                              setState(){
-                                _visibilityAdd = false;
-                                _visibilityEdit = true;
-                              }
+ 
+                              _visibilityAdd = false;
+                              _visibilityEdit = true;
                               _vocaEngController.text = voca.vocaEng!;
                               _vocaVieController.text = voca.vocaVie!;
                               _typeController.text = voca.type!;
